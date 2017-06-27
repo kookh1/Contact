@@ -30,6 +30,16 @@ def print_menu():
     menu=input("메뉴선택: ")
     return int(menu)
 
+def print_contact(contact_list):
+    for contact in contact_list:
+        contact.print_info()
+
+
+def delete_contact(contact_list, name):
+    for i, contact in enumerate(contact_list):
+        if contact.name==name:
+            del contact_list[i]
+
 def run():
     contact_list=[]
     while 1:
@@ -37,6 +47,11 @@ def run():
         if menu==1:
             contact=set_contact()
             contact_list.append(contact)
+        elif menu==2:
+            print_contact(contact_list)
+        elif menu==3:
+            name=input("Name: ")
+            delete_contact(contact_list, name)
         elif menu==4:
             break
 
